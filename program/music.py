@@ -39,7 +39,7 @@ async def ytdl(format: str, link: str):
     return 0, stderr
 
 
-@Client.on_message(command(["mplay", f"mplay@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["شغل", f"mplay@{BOT_USERNAME}"]) & other_filters)
 async def play(c: Client, m: Message):
     await m.delete()
     replied = m.reply_to_message
@@ -47,8 +47,8 @@ async def play(c: Client, m: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="• Mᴇɴᴜ", callback_data="cbmenu"),
-                InlineKeyboardButton(text="• Cʟᴏsᴇ", callback_data="cls"),
+                InlineKeyboardButton(text="• تحكم", callback_data="cbmenu"),
+                InlineKeyboardButton(text="• اغلاق", callback_data="cls"),
             ]
         ]
     )
@@ -175,7 +175,7 @@ async def play(c: Client, m: Message):
                     else:
                         if chat_id in QUEUE:
                             pos = add_to_queue(
-                                chat_id, songname, ytlink, url, "Audio", 0
+                                chat_id, songname, ytlink, url, "شغل", 0
                             )
                             await suhu.delete()
                             requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
@@ -194,7 +194,7 @@ async def play(c: Client, m: Message):
                                     ),
                                     stream_type=StreamType().local_stream,
                                 )
-                                add_to_queue(chat_id, songname, ytlink, url, "Audio", 0)
+                                add_to_queue(chat_id, songname, ytlink, url, "شغل", 0)
                                 await suhu.delete()
                                 requester = f"[{m.from_user.first_name}](tg://user?id={m.from_user.id})"
                                 await m.reply_photo(
