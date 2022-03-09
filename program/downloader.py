@@ -87,7 +87,7 @@ def song(_, message):
 
 
 @Client.on_message(
-    command(["فيديو", f"vsong@{bn}", "video", f"video@{bn}"]) & ~filters.edited
+    command(["ابحث", f"vsong@{bn}", "video", f"video@{bn}"]) & ~filters.edited
 )
 async def vsong(client, message):
     ydl_opts = {
@@ -142,11 +142,11 @@ async def lyrics(_, message):
             await message.reply_text("» **give a lyric name too.**")
             return
         query = message.text.split(None, 1)[1]
-        rep = await message.reply_text("🔎 **searching lyrics...**")
+        rep = await message.reply_text("🔎 **البحث عن كلمات...**")
         resp = requests.get(
             f"https://api-tede.herokuapp.com/api/lirik?l={query}"
         ).json()
         result = f"{resp['data']}"
         await rep.edit(result)
     except Exception:
-        await rep.edit("❌ **results of lyric not found.**\n\n» **please give a valid song name.**")
+        await rep.edit("❌ **لم يتم العثور على نتائج كلمات غنائية.**\n\n» **يرجى إعطاء اسم أغنية صالح.**")
