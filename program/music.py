@@ -209,7 +209,7 @@ async def play(c: Client, m: Message):
     else:
         if len(m.command) < 2:
             await m.reply(
-                "» reply to an **audio file** or **give something to search.**"
+                "» الرد على**ملف صوتي** او **إعطاء شيء للبحث.**"
             )
         else:
             suhu = await c.send_message(chat_id, "🔍 *يبحث...**")
