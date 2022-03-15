@@ -21,7 +21,7 @@ def ytsearch(query: str):
         songname = data["title"]
         url = data["link"]
         duration = data["duration"]
-        thumbnail = f"https://i.ytimg.com/vi/{data['id']}/hqdefault.jpg"
+        thumbnail = f"https://telegra.ph/file/19ddf9ee2e7323682105e.jpg"
         return [songname, url, duration, thumbnail]
     except Exception as e:
         print(e)
@@ -182,7 +182,7 @@ async def play(c: Client, m: Message):
                             )
                         else:
                             try:
-                                await suhu.edit("🔄 **Joining vc...**")
+                                await suhu.edit("🔄 **جاري الانضمام للمكالمه ...**")
                                 await call_py.join_group_call(
                                     chat_id,
                                     AudioPiped(
@@ -254,4 +254,4 @@ async def play(c: Client, m: Message):
                             )
                         except Exception as ep:
                             await suhu.delete()
-                            await m.reply_text(f"🚫 error: `{ep}`")
+                            await m.reply_text(f"🚫 خطأ : `{ep}`")
