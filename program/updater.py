@@ -19,9 +19,9 @@ def gen_chlog(repo, diff):
     upstream_repo_url = Repo().remotes[0].config_reader.get("url").replace(".git", "")
     ac_br = repo.active_branch.name
     ch_log = tldr_log = ""
-    ch = f"<b>updates for <a href={upstream_repo_url}/tree/{ac_br}>[{ac_br}]</a>:</b>"
-    ch_tl = f"updates for {ac_br}:"
-    d_form = "%d/%m/%y || %H:%M"
+    ch = f"<b>تحديثات من<a href={upstream_repo_url}/tree/{ac_br}>[{ac_br}]</a>:</b>"
+    ch_tl = f"تحديثات من {ac_br}:"
+    d_form = "%d/%m/%y || %I:%M"
     for c in repo.iter_commits(diff):
         ch_log += (
             f"\n\n💬 <b>{c.count()}</b> 🗓 <b>[{c.committed_datetime.strftime(d_form)}]</b>\n<b>"
@@ -57,20 +57,20 @@ def updater():
 @sudo_users_only
 async def update_repo(_, message: Message):
     chat_id = message.chat.id
-    msg = await message.reply("🔄 `برمجه وكتابه يوسف القيسي ...`")
+    msg = await message.reply("🔄 `برمجه وكتابه كلاينر علي @LLL5L ...`")
     update_avail = updater()
     if update_avail:
-        await msg.edit("👤 يمكن شراء بوت بحقوقك كامل \n\n• او نسخه سورس بحقوقك بأرخص الأسعار حسابي الوحيد : GGG66.")
+        await msg.edit("👤 يمكن شراء بوت بحقوقك كامل \n\n• او نسخه سورس بحقوقك بأرخص الأسعار حسابي الوحيد : @LLL5L.")
         system("git pull -f && pip3 install -r requirements.txt")
         execle(sys.executable, sys.executable, "main.py", environ)
         return
-    await msg.edit("My only **account on ** telegram [X : 𝆥𝗘ꪜ𝗮𝗡 •](https://t.me/GGG66)", disable_web_page_preview=True)
+    await msg.edit("My only **account on ** telegram [كلاينر علي•](https://t.me/LLL5L)", disable_web_page_preview=True)
 
 
 @Client.on_message(command(["ريستارت", f"restart@{BOT_USERNAME}"]) & ~filters.edited)
 @sudo_users_only
 async def restart_bot(_, message: Message):
-    msg = await message.reply("`restarting bot...`")
+    msg = await message.reply("`ريستارت ...`")
     args = [sys.executable, "main.py"]
     await msg.edit("✅ إعادة تشغيل البوت\n\n• الآن يمكنك استخدام هذا البوت مرة أخرى.")
     execle(sys.executable, *args, environ)
