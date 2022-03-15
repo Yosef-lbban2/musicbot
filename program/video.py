@@ -1,7 +1,3 @@
-# Copyright (C) 2021 By Veez Music-Project
-# Commit Start Date 20/10/2021
-# Finished On 28/10/2021
-
 import re
 import asyncio
 
@@ -30,7 +26,7 @@ def ytsearch(query: str):
         songname = data["title"]
         url = data["link"]
         duration = data["duration"]
-        thumbnail = f"https://i.ytimg.com/vi/{data['id']}/hqdefault.jpg"
+        thumbnail = f"https://telegra.ph/file/19ddf9ee2e7323682105e.jpg"
         return [songname, url, duration, thumbnail]
     except Exception as e:
         print(e)
@@ -138,7 +134,7 @@ async def vplay(c: Client, m: Message):
                 else:
                     Q = 720
                     await loser.edit(
-                        "» __only 720, 480, 360 allowed__ \n💡 **now streaming video in 720p**"
+                        "» فقط 720-480-360 "
                     )
             try:
                 if replied.video:
