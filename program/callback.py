@@ -1,5 +1,3 @@
-# Copyright (C) 2021 By VeezMusicProject
-
 from driver.queues import QUEUE
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
@@ -37,15 +35,15 @@ async def cbstart(_, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "قناة السورس", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "قناة السورس", url=f"https://t.me/IQTHON"
                     ),
                     InlineKeyboardButton(
-                        "تحديثات البوت", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "تحديثات البوت", url=f"https://t.me/TELETHONMUSIC"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "ملاحظة مهمة جدأ", url="https://t.me/Xl444/22"
+                        "ملاحظة مهمة جدأ", url="https://t.me/IQTHON"
                     )
                 ],
             ]
@@ -68,9 +66,9 @@ async def cbguides(_, query: CallbackQuery):
 
 ℹ️ ** اذ لم ينضم حساب المساعد اكتب .اطلع , وبعد ذالك اكتب .انضم**
 
-ℹ️ ** اي مشكلة تواجها لاتتردد في التحدث مع المطور: @IIlIIIIIll**
-
-ℹ️ __بواسطة  {BOT_NAME} __""",
+ℹ️ بواسطة {BOT_NAME} 
+- المطور : @LLL5L
+- القناه : @IQTHON""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("رجوع", callback_data="cbstart")]]
         ),
@@ -84,7 +82,9 @@ async def cbcmds(_, query: CallbackQuery):
 
 » **مرحبا بك في قائمة الاوامر الاساسية يمكنك معرفة الاوامر عن طريق استخدام الازرار ادناة !**
 
-ℹ️ __بواسطة {BOT_NAME} __""",
+ℹ️ بواسطة {BOT_NAME} 
+- المطور : @LLL5L
+- القناه : @IQTHON""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -119,7 +119,9 @@ async def cbbasic(_, query: CallbackQuery):
 » .فحص - لاضهار حاله البوت ان يعمل او لا
 » .الحاله - فحص البوت في المجموعة
 
-ℹ️ __بواسطة {BOT_NAME} __""",
+ℹ️ بواسطة {BOT_NAME} 
+- المطور : @LLL5L
+- القناه : @IQTHON""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 رجوع", callback_data="cbcmds")]]
         ),
@@ -142,7 +144,9 @@ async def cbadmin(_, query: CallbackQuery):
 » .انضم - دعوة حساب المساعد للمجموعة
 » .اطلع - لخروج حساب مساعد من لمجموعة
 
-ℹ️ __بواسطة {BOT_NAME} __""",
+ℹ️ __بواسطة {BOT_NAME} __
+- المطور : @LLL5L
+- القناه : @IQTHON""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 رجوع", callback_data="cbcmds")]]
         ),
@@ -160,7 +164,9 @@ async def cbsudo(_, query: CallbackQuery):
 » .اعادة - اعادة تشغيل البوت
 » .مغادرة كل المجموعات - لمغادرة حساب المساعد من كل المجموعات
 
-ℹ️ __بواسطة {BOT_NAME} __""",
+ℹ️ __بواسطة {BOT_NAME} __
+- المطور : @LLL5L
+- القناه : @IQTHON""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 رجوع", callback_data="cbcmds")]]
         ),
@@ -192,12 +198,12 @@ async def cbmenu(_, query: CallbackQuery):
              ),
          )
     else:
-        await query.answer("❌ ماكو شي مشتغل ياحمار", show_alert=True)
+        await query.answer("❌ لايوجد شيئ مشتغل", show_alert=True)
 
 
 @Client.on_callback_query(filters.regex("cls"))
 async def close(_, query: CallbackQuery):
     a = await _.get_chat_member(query.message.chat.id, query.from_user.id)
     if not a.can_manage_voice_chats:
-        return await query.answer("💡 وخر ايدك المشرف الوحيد الذي لديه صلاحية إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
+        return await query.answer("💡 ابعد ايدك المشرف الوحيد الذي لديه صلاحية إدارة الدردشات الصوتية يمكنه النقر على هذا الزر !", show_alert=True)
     await query.message.delete()
