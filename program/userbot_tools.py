@@ -45,7 +45,7 @@ async def leave_chat(_, m: Message):
         await user.leave_chat(chat_id)
         return await _.send_message(
             chat_id,
-            "✅ غادر المجموعة بايي بايي ",
+            "✅ غادر المجموعة باي ",
         )
     except UserNotParticipant:
         return await _.send_message(
@@ -54,7 +54,7 @@ async def leave_chat(_, m: Message):
         )
 
 
-@Client.on_message(command(["leaveall", f"leaveall@{BOT_USERNAME}"]))
+@Client.on_message(command(["مغادره الجميع", f"مغادره الجميع@{BOT_USERNAME}"]))
 @sudo_users_only
 async def leave_all(client, message):
     if message.from_user.id not in SUDO_USERS:
@@ -62,22 +62,22 @@ async def leave_all(client, message):
 
     left = 0
     failed = 0
-    lol = await message.reply("🔄 **userbot** leaving all chats !")
+    lol = await message.reply("🔄 **البوت غادر جميع المجموعات** !")
     async for dialog in user.iter_dialogs():
         try:
             await user.leave_chat(dialog.chat.id)
             left += 1
             await lol.edit(
-                f"Userbot leaving all group...\n\nLeft: {left} chats.\nFailed: {failed} chats."
+                f"**البوت غادر جميع المجموعات**\n\nمغادره : {left} محادثه.\nالاخطاء: {failed} محادثه."
             )
         except BaseException:
             failed += 1
             await lol.edit(
-                f"Userbot leaving...\n\nLeft: {left} chats.\nFailed: {failed} chats."
+                f"**البوت غادر جميع المجموعات**\n\nمغادره : {left} محادثه.\nالاخطاء: {failed} محادثه."
             )
         await asyncio.sleep(0.7)
     await client.send_message(
-        message.chat.id, f"✅ Left from: {left} chats.\n❌ Failed in: {failed} chats."
+        message.chat.id, f"✅ مغادره من : {left} محادثه .\n❌ خطا في : {failed} محادثه ."
     )
 
 
