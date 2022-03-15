@@ -72,7 +72,7 @@ async def skip(client, m: Message):
             )
     else:
         skip = m.text.split(None, 1)[1]
-        OP = "🗑 **removed song from queue:**"
+        OP = "🗑 **تمت إزالة الأغنية من قائمة الانتظار :**"
         if chat_id in QUEUE:
             items = [int(x) for x in skip.split(" ") if x.isdigit()]
             items.sort(reverse=True)
@@ -101,7 +101,7 @@ async def stop(client, m: Message):
             clear_queue(chat_id)
             await m.reply("✅ انقطع اتصال المستخدم الروبوت بالدردشة المرئية.")
         except Exception as e:
-            await m.reply(f"🚫 **error:**\n\n`{e}`")
+            await m.reply(f"🚫 **خطأ :**\n\n`{e}`")
     else:
         await m.reply("❌ **لا شيء يتدفق حاليا**")
 
@@ -119,7 +119,7 @@ async def pause(client, m: Message):
                 "⏸ **تم إيقاف المسار مؤقتًا..**\n\n• **لاستئناف التشغيل ، استخدم**\n» .استئناف أمر."
             )
         except Exception as e:
-            await m.reply(f"🚫 **error:**\n\n`{e}`")
+            await m.reply(f"🚫 **خطأ :**\n\n`{e}`")
     else:
         await m.reply("❌ **لايوجد اغنية بدردشه الصوتية**")
 
@@ -137,7 +137,7 @@ async def resume(client, m: Message):
                 "▶️ **استئناف المسار.**\n\n• **لإيقاف البث مؤقتًا ، استخدم**\n» .مؤقت امر."
             )
         except Exception as e:
-            await m.reply(f"🚫 **error:**\n\n`{e}`")
+            await m.reply(f"🚫 **خطأ :**\n\n`{e}`")
     else:
         await m.reply("❌ **لا يوجد اغنية بدردشه الصوتية ❌**")
 
@@ -155,9 +155,9 @@ async def mute(client, m: Message):
                 "🔇 **تم كتم البوت.**\n\n• **لإلغاء كتم صوت البوت, استخدم**\n» .الغاء كتم أمر."
             )
         except Exception as e:
-            await m.reply(f"🚫 **error:**\n\n`{e}`")
+            await m.reply(f"🚫 **خطأ :**\n\n`{e}`")
     else:
-        await m.reply("❌ **nothing in streaming**")
+        await m.reply("❌ **لا شيء**")
 
 
 @Client.on_message(
@@ -173,7 +173,7 @@ async def unmute(client, m: Message):
                 "🔊 **تم إعادة صوت البوت.**\n\n• **لكتم صوت البوت ، استخدم**\n» .كتم أمر."
             )
         except Exception as e:
-            await m.reply(f"🚫 **error:**\n\n`{e}`")
+            await m.reply(f"🚫 **خطأ :**\n\n`{e}`")
     else:
         await m.reply("❌ **لا يوجد اغنية بدردشه الصوتية**")
 
@@ -193,7 +193,7 @@ async def cbpause(_, query: CallbackQuery):
                 "⏸ تم إيقاف التشغيل مؤقتًا", reply_markup=bttn
             )
         except Exception as e:
-            await query.edit_message_text(f"🚫 **error:**\n\n`{e}`", reply_markup=bcl)
+            await query.edit_message_text(f"🚫 **خطأ :**\n\n`{e}`", reply_markup=bcl)
     else:
         await query.answer("❌ لا شيء يتدفق حاليا", show_alert=True)
 
@@ -213,7 +213,7 @@ async def cbresume(_, query: CallbackQuery):
                 "▶️ تم استئناف التشغيل", reply_markup=bttn
             )
         except Exception as e:
-            await query.edit_message_text(f"🚫 **error:**\n\n`{e}`", reply_markup=bcl)
+            await query.edit_message_text(f"🚫 **خطأ :**\n\n`{e}`", reply_markup=bcl)
     else:
         await query.answer("❌ لاشيء يتدفق حاليا", show_alert=True)
 
@@ -232,7 +232,7 @@ async def cbstop(_, query: CallbackQuery):
             clear_queue(chat_id)
             await query.edit_message_text("✅ **تم إنهاء التشغيل بنجاح**", reply_markup=bcl)
         except Exception as e:
-            await query.edit_message_text(f"🚫 **error:**\n\n`{e}`", reply_markup=bcl)
+            await query.edit_message_text(f"🚫 **خطأ :**\n\n`{e}`", reply_markup=bcl)
     else:
         await query.answer("❌ لا شيء يتدفق حاليا", show_alert=True)
 
@@ -252,7 +252,7 @@ async def cbmute(_, query: CallbackQuery):
                 "🔇 تم كتم صوت البوت بنجاح", reply_markup=bttn
             )
         except Exception as e:
-            await query.edit_message_text(f"🚫 **error:**\n\n`{e}`", reply_markup=bcl)
+            await query.edit_message_text(f"🚫 **خطأ :**\n\n`{e}`", reply_markup=bcl)
     else:
         await query.answer("❌ المسؤول الوحيد الذي لديه إذن إدارة الدردشات الصوتية يمكنه النقر على هذا الزر", show_alert=True)
 
@@ -272,7 +272,7 @@ async def cbunmute(_, query: CallbackQuery):
                 "🔊 تم الغاء كتم البوت بنجاح", reply_markup=bttn
             )
         except Exception as e:
-            await query.edit_message_text(f"🚫 **error:**\n\n`{e}`", reply_markup=bcl)
+            await query.edit_message_text(f"🚫 **خطأ :**\n\n`{e}`", reply_markup=bcl)
     else:
         await query.answer("❌ لا شيء يتدفق حاليا", show_alert=True)
 
@@ -291,6 +291,6 @@ async def change_volume(client, m: Message):
                 f"✅ **ضبط الصوت على** `{range}`%"
             )
         except Exception as e:
-            await m.reply(f"🚫 **error:**\n\n`{e}`")
+            await m.reply(f"🚫 **خطأ :**\n\n`{e}`")
     else:
         await m.reply("❌ **لا شيء يتدفق حاليا**")
