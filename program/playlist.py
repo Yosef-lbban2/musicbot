@@ -27,7 +27,7 @@ async def playlist(client, m: Message):
       if len(chat_queue)==1:
          await m.reply(f"💡 **المسار المشتغل:**\n\n• [{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}`", reply_markup=keyboard, disable_web_page_preview=True)
       else:
-         QUE = f"💡 **المسار المشتغل:**\n\n• [{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}` \n\n**📖 Queue List:**\n"
+         QUE = f"💡 **المسار المشتغل:**\n\n• [{chat_queue[0][0]}]({chat_queue[0][2]}) | `{chat_queue[0][3]}` \n\n"
          l = len(chat_queue)
          for x in range (1, l):
             han = chat_queue[x][0]
