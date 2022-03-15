@@ -1,7 +1,3 @@
-# Copyright (C) 2021 By Veez Music-Project
-# Commit Start Date 20/10/2021
-# Finished On 28/10/2021
-
 import re
 import asyncio
 
@@ -53,11 +49,11 @@ async def play(c: Client, m: Message):
         ]
     )
     if m.sender_chat:
-        return await m.reply_text("you're an __Anonymous__ Admin !\n\n» revert back to user account from admin rights.")
+        return await m.reply_text("أنت مسؤول ؟ !\n\n» تحتاج الى المساعد و الاشراف.")
     try:
         aing = await c.get_me()
     except Exception as e:
-        return await m.reply_text(f"error:\n\n{e}")
+        return await m.reply_text(f"خطأ :\n\n{e}")
     a = await c.get_chat_member(chat_id, aing.id)
     if a.status != "administrator":
         await m.reply_text(
