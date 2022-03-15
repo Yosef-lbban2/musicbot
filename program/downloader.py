@@ -1,5 +1,3 @@
-# Copyright (C) 2021 By Veez Music-Project
-
 from __future__ import unicode_literals
 
 import asyncio
@@ -60,7 +58,7 @@ def song(_, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"**🎧 تم التحميل بواسطة @GGG66**"
+        rep = f"**🎧 تم التحميل  **"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
