@@ -57,14 +57,14 @@ def updater():
 @sudo_users_only
 async def update_repo(_, message: Message):
     chat_id = message.chat.id
-    msg = await message.reply("🔄 `برمجه وكتابه كلاينر علي @LLL5L ...`")
+    msg = await message.reply("🔄 `برمجه وكتابه  @LLL5L ...`")
     update_avail = updater()
     if update_avail:
-        await msg.edit("👤 يمكن شراء بوت بحقوقك كامل \n\n• او نسخه سورس بحقوقك بأرخص الأسعار حسابي الوحيد : @LLL5L.")
+        await msg.edit("👤 يمكن شراء بوت بحقوقك كامل \n\n• او نسخه سورس بحقوقك بأرخص الأسعار حسابي الوحيد : @H0O0O0H.")
         system("git pull -f && pip3 install -r requirements.txt")
         execle(sys.executable, sys.executable, "main.py", environ)
         return
-    await msg.edit("My only **account on ** telegram [كلاينر علي•](https://t.me/LLL5L)", disable_web_page_preview=True)
+    await msg.edit("My only **account on ** telegram [♡ ح ـرفـيـ ـن ♡](https://t.me/H0O0O0H)", disable_web_page_preview=True)
 
 
 @Client.on_message(command(["ريستارت", f"restart@{BOT_USERNAME}"]) & ~filters.edited)
