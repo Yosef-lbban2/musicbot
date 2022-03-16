@@ -49,7 +49,7 @@ def song(_, message):
         duration = results[0]["duration"]
 
     except Exception as e:
-        m.edit("❌ لم اجد شيئا.\n\nاعطني اسم المغني كامل.")
+        m.edit("❌ لم اجد شيئا.\n\nاعطني اسم الصوت كامل.")
         print(str(e))
         return
     m.edit("📥 تحميل الملف...")
@@ -117,7 +117,7 @@ async def vsong(client, message):
             ytdl_data = ytdl.extract_info(link, download=True)
             file_name = ytdl.prepare_filename(ytdl_data)
     except Exception as e:
-        return await msg.edit(f"🚫 **error:** {e}")
+        return await msg.edit(f"🚫 **خطا :** {e}")
     preview = wget.download(thumbnail)
     await msg.edit("📤 **تحميل الفيديو...**")
     await message.reply_video(
@@ -137,7 +137,7 @@ async def vsong(client, message):
 async def lyrics(_, message):
     try:
         if len(message.command) < 2:
-            await message.reply_text("» **give a lyric name too.**")
+            await message.reply_text("» **اعطني كلمات.**")
             return
         query = message.text.split(None, 1)[1]
         rep = await message.reply_text("🔎 **البحث عن كلمات...**")
