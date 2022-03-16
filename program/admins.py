@@ -67,12 +67,12 @@ async def skip(client, m: Message):
         else:
             await m.reply_photo(
                 photo=f"{IMG_3}",
-                caption=f"⏭ **تم التخطي إلى المسار التالي.**\n\n🏷 **العنوان:** [{op[0]}]({op[1]})\n💭 **الدردشة:** `{chat_id}`\n💡 **الحاله:** `التشغيل `\n🎧 **طلب من:** {m.from_user.mention()}",
+                caption=f"⏭ **تم التخطي إلى المسار التالي.**\n\n🏷 **العنوان:** [{op[0]}]({op[1]})\n💭 **الدردشة:** `{chat_id}`\n💡 **الحاله:** `التشغيل `\n **طلب من:** {m.from_user.mention()}",
                 reply_markup=keyboard,
             )
     else:
         skip = m.text.split(None, 1)[1]
-        OP = "🗑 **تمت إزالة الأغنية من قائمة الانتظار :**"
+        OP = "🗑 **تمت إزالة التسجيل من قائمة الانتظار :**"
         if chat_id in QUEUE:
             items = [int(x) for x in skip.split(" ") if x.isdigit()]
             items.sort(reverse=True)
@@ -121,7 +121,7 @@ async def pause(client, m: Message):
         except Exception as e:
             await m.reply(f"🚫 **خطأ :**\n\n`{e}`")
     else:
-        await m.reply("❌ **لايوجد اغنية بدردشه الصوتية**")
+        await m.reply("❌ **لايوجد صوت بدردشه الصوتية**")
 
 
 @Client.on_message(
@@ -175,7 +175,7 @@ async def unmute(client, m: Message):
         except Exception as e:
             await m.reply(f"🚫 **خطأ :**\n\n`{e}`")
     else:
-        await m.reply("❌ **لا يوجد اغنية بدردشه الصوتية**")
+        await m.reply("❌ **لا يوجد صوت بدردشه الصوتية**")
 
 
 @Client.on_callback_query(filters.regex("cbpause"))
