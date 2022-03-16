@@ -15,7 +15,7 @@ from config import (
 async def cbstart(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""👋🏻 **هلا حب [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**\n
-🎗 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) انا روبوت لتشغيل الموسيقى والفيديو على منصة تليجرام!**
+🎗 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) انا روبوت لتشغيل الصوت والفيديو على منصة تليجرام!**
 
 ℹ️ **لمعرفة اوامر هذا البوت اضغط على » الاوامر الاساسية!**
 
@@ -35,15 +35,15 @@ async def cbstart(_, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "قناة السورس", url=f"https://t.me/IQTHON"
+                        "قناة السورس", url=f"https://t.me/harfin1"
                     ),
                     InlineKeyboardButton(
-                        "تحديثات البوت", url=f"https://t.me/TELETHONMUSIC"
+                        "تحديثات البوت", url=f"https://t.me/harfin1"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "ملاحظة مهمة جدأ", url="https://t.me/IQTHON"
+                        "ملاحظة مهمة جدأ", url="https://t.me/harfin1"
                     )
                 ],
             ]
@@ -61,14 +61,13 @@ async def cbguides(_, query: CallbackQuery):
 2.) **بعد ذالك, قم بترقيتي كمسؤول.**
 3.) **بعد ذالك اكتب, .تحديث لتحديث البيانات.**
 3.) **اضف @{ASSISTANT_NAME} في مجموعتك او اكتب .انضم **
-4.) **بعد اكمال كل شي قم بفتح محادثة صوتية واستمتع.**
+4.) **بعد اكمال كل شي قم بفتح محادثة صوتية واستمع.**
 5.) **بعض الاحيان, ستواجه مشاكل في التشغيل ماعليك فقط سوى كتابة الامر .تحديث**
 
 ℹ️ ** اذ لم ينضم حساب المساعد اكتب .اطلع , وبعد ذالك اكتب .انضم**
 
 ℹ️ بواسطة {BOT_NAME} 
-- المطور : @LLL5L
-- القناه : @IQTHON""",
+- المطور : @H0O0O0H """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("رجوع", callback_data="cbstart")]]
         ),
@@ -83,8 +82,7 @@ async def cbcmds(_, query: CallbackQuery):
 » **مرحبا بك في قائمة الاوامر الاساسية يمكنك معرفة الاوامر عن طريق استخدام الازرار ادناة !**
 
 ℹ️ بواسطة {BOT_NAME} 
-- المطور : @LLL5L
-- القناه : @IQTHON""",
+- المطور : @H0O0O0H """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -120,8 +118,7 @@ async def cbbasic(_, query: CallbackQuery):
 » .الحاله - فحص البوت في المجموعة
 
 ℹ️ بواسطة {BOT_NAME} 
-- المطور : @LLL5L
-- القناه : @IQTHON""",
+- المطور : @H0O0O0H """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 رجوع", callback_data="cbcmds")]]
         ),
@@ -145,8 +142,7 @@ async def cbadmin(_, query: CallbackQuery):
 » .اطلع - لخروج حساب مساعد من لمجموعة
 
 ℹ️ __بواسطة {BOT_NAME} __
-- المطور : @LLL5L
-- القناه : @IQTHON""",
+- المطور : @H0O0O0H """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 رجوع", callback_data="cbcmds")]]
         ),
@@ -165,8 +161,7 @@ async def cbsudo(_, query: CallbackQuery):
 » .مغادرة كل المجموعات - لمغادرة حساب المساعد من كل المجموعات
 
 ℹ️ __بواسطة {BOT_NAME} __
-- المطور : @LLL5L
-- القناه : @IQTHON""",
+- المطور : @H0O0O0H """,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("🔙 رجوع", callback_data="cbcmds")]]
         ),
@@ -183,7 +178,7 @@ async def cbmenu(_, query: CallbackQuery):
     chat_id = query.message.chat.id
     if chat_id in QUEUE:
           await query.edit_message_text(
-              f"⚙️ **اعدادات الاغنية** {query.message.chat.title}\n\n⏸ : ايقاف مؤقت\n▶️ : استمرار\n🔇 : كتم حساب المساعد\n🔊 : الغاء كتم حساب المساعد\n⏹ : ايقاف التشغيل",
+              f"⚙️ **اعدادات الصوت** {query.message.chat.title}\n\n⏸ : ايقاف مؤقت\n▶️ : استمرار\n🔇 : كتم حساب المساعد\n🔊 : الغاء كتم حساب المساعد\n⏹ : ايقاف التشغيل",
               reply_markup=InlineKeyboardMarkup(
                   [[
                       InlineKeyboardButton("⏹", callback_data="cbstop"),
